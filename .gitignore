@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -150,11 +151,16 @@ activemq-data/
 # Environments
 .env
 .envrc
+=======
+__pycache__/
+.env
+>>>>>>> 353ac4e (initial commit)
 .venv
 env/
 venv/
 ENV/
 env.bak/
+<<<<<<< HEAD
 venv.bak/
 
 # Spyder project settings
@@ -216,3 +222,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+=======
+venv.bak/
+>>>>>>> 353ac4e (initial commit)
