@@ -40,7 +40,7 @@ REST API для управления задачами с авторизацие�
     "username": "ivan",
     "email": "ivan@example.com",
     "password": "strongpass123",
-    "password2": "strongpass123"
+    "password_again": "strongpass123"
   }
   ```
   Получение токена (логин):
