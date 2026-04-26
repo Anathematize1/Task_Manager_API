@@ -30,7 +30,7 @@ REST API для управления задачами с авторизацие�
 
 
 ## 📡 Эндпоинты:
-  Регистрация
+  Регистрация:
  
   ```POST /api/auth/register/```
   
@@ -43,7 +43,7 @@ REST API для управления задачами с авторизацие�
     "password2": "strongpass123"
   }
   ```
-  Получение токена (логин)
+  Получение токена (логин):
   
   ```POST /api/auth/login/```
   
@@ -54,7 +54,7 @@ REST API для управления задачами с авторизацие�
     "password": "strongpass123"
   }
   ```
-  Обновление токена
+  Обновление токена:
   
   ```POST /api/auth/refresh/```
 
@@ -63,62 +63,64 @@ REST API для управления задачами с авторизацие�
 Все эндпоинты, кроме register требуют авторизацию
 Header:
 
-Authorization: Bearer <access_token>
-Получить список задач
+  Authorization: Bearer <access_token>
 
-```GET /api/tasks/```
+  Получить список задач
 
-Query параметры:
+    ```GET /api/tasks/```
 
-  status - фильтр по статусу
-  priority — фильтр по приоритету
-  search — поиск по названию и описанию
-  ordering — сортировка
+  Query параметры:
 
-Пример:
+    - status - фильтр по статусу
+    - priority — фильтр по приоритету
+    - search — поиск по названию и описанию
+    - ordering — сортировка
 
-```GET /api/tasks/?status=done&ordering=-created_at```
-Создать задачу
+  Пример:
 
-```POST /api/tasks/```
+    ```GET /api/tasks/?status=done&ordering=-created_at```
+  
+  Создать задачу
 
-```Body:
+    ```POST /api/tasks/```
 
-{
-  "title": "Сделать резюме",
-  "description": "Подготовка к стажировке",
-  "status": "new",
-  "priority": "high"
-}
-```
-Получить задачу
+    ```Body:
+    
+    {
+      "title": "Сделать резюме",
+      "description": "Подготовка к стажировке",
+      "status": "new",
+      "priority": "high"
+    }
+    ```
+  Получить задачу
 
-```GET /api/tasks/{id}/```
+    ```GET /api/tasks/{id}/```
 
-Обновить задачу (частично)
+  Обновить задачу (частично)
 
-```PATCH /api/tasks/{id}/```
+    ```PATCH /api/tasks/{id}/```
 
-Удалить задачу
+  Удалить задачу
 
-```DELETE /api/tasks/{id}/```
+    ```DELETE /api/tasks/{id}/```
 
-📄 Пагинация
+  📄 Пагинация
 
-```GET /api/tasks/?page=2```
+    ```GET /api/tasks/?page=2```
 
-Пример ответа:
+  Пример ответа:
 
-```{
-  "count": 20,
-  "next": "...",
-  "previous": "...",
-  "results": [...]
-}
-```
+    ```{
+      "count": 20,
+      "next": "...",
+      "previous": "...",
+      "results": [...]
+    }
+    ```
 
 
-  📌 Особенности:
+📌 Особенности:
   
   - реализовано разграничение доступа
   - используются query params для фильтрации
