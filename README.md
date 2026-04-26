@@ -30,8 +30,8 @@ REST API для управления задачами с авторизацие�
 
 
 ## 📡 Эндпоинты:
+  
   Регистрация:
- 
   ```POST /api/auth/register/```
   
   **Body:**
@@ -43,85 +43,87 @@ REST API для управления задачами с авторизацие�
     "password_again": "strongpass123"
   }
   ```
+
+
   Получение токена (логин):
-  
   ```POST /api/auth/login/```
-  
-  Body:
-  
-  ```{
+   
+  ```Body:
+
+  {
     "username": "ivan",
     "password": "strongpass123"
   }
   ```
+
+
   Обновление токена:
-  
-  ```POST /api/auth/refresh/```
+```POST /api/auth/refresh/```
+
 
 📝 Задачи
 
 Все эндпоинты, кроме register требуют авторизацию
-Header:
-
+```Header
   Authorization: Bearer <access_token>
+```
 
-  Получить список задач:
 
-    ```GET /api/tasks/```
+Получить список задач:
+  ```GET /api/tasks/```
 
+ 
   Query параметры:
+  - status - фильтр по статусу
+  - priority — фильтр по приоритету
+  - search — поиск по названию и описанию
+  - ordering — сортировка
 
-    - status - фильтр по статусу
-    - priority — фильтр по приоритету
-    - search — поиск по названию и описанию
-    - ordering — сортировка
-
+  
   Пример:
-
-    ```GET /api/tasks/?status=done&ordering=-created_at```
+  ```GET /api/tasks/?status=done&ordering=-created_at```
   
   Создать задачу:
+  ```POST /api/tasks/```
 
-    ```POST /api/tasks/```
-
-    ```Body:
-    
-    {
-      "title": "Сделать резюме",
-      "description": "Подготовка к стажировке",
-      "status": "new",
-      "priority": "high"
-    }
-    ```
+  ```Body:
+  
+  {
+    "title": "Сделать резюме",
+    "description": "Подготовка к стажировке",
+    "status": "new",
+    "priority": "high"
+  }
+  ```
+  
+  
   Получить задачу:
+  ```GET /api/tasks/{id}/```
 
-    ```GET /api/tasks/{id}/```
-
+  
   Обновить задачу (частично):
+  ```PATCH /api/tasks/{id}/```
 
-    ```PATCH /api/tasks/{id}/```
 
   Удалить задачу:
+  ```DELETE /api/tasks/{id}/```
 
-    ```DELETE /api/tasks/{id}/```
-
+  
   📄 Пагинация:
+  ```GET /api/tasks/?page=2```
 
-    ```GET /api/tasks/?page=2```
-
+  
   Пример ответа:
-
-    ```{
-      "count": 20,
-      "next": "...",
-      "previous": "...",
-      "results": [...]
-    }
-    ```
+  ```{
+    "count": 20,
+    "next": "...",
+    "previous": "...",
+    "results": [...]
+  }
+  ```
 
 
 📌 Особенности:
-  
   - реализовано разграничение доступа
   - используются query params для фильтрации
   - реализована пагинация
