@@ -65,7 +65,7 @@ Header:
 
   Authorization: Bearer <access_token>
 
-  Получить список задач
+  Получить список задач:
 
     ```GET /api/tasks/```
 
@@ -80,7 +80,7 @@ Header:
 
     ```GET /api/tasks/?status=done&ordering=-created_at```
   
-  Создать задачу
+  Создать задачу:
 
     ```POST /api/tasks/```
 
@@ -93,19 +93,19 @@ Header:
       "priority": "high"
     }
     ```
-  Получить задачу
+  Получить задачу:
 
     ```GET /api/tasks/{id}/```
 
-  Обновить задачу (частично)
+  Обновить задачу (частично):
 
     ```PATCH /api/tasks/{id}/```
 
-  Удалить задачу
+  Удалить задачу:
 
     ```DELETE /api/tasks/{id}/```
 
-  📄 Пагинация
+  📄 Пагинация:
 
     ```GET /api/tasks/?page=2```
 
