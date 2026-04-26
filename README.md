@@ -1,6 +1,7 @@
 # Task Manager API
 REST API для управления задачами с авторизацией пользователей.
 
+
 ## 🚀 Функциональность:
   - регистрация пользователей
   - JWT-аутентификация
@@ -18,15 +19,26 @@ REST API для управления задачами с авторизацие�
   - SQLite / PostgreSQL
   - JWT
 
-## ⚙️ Запуск:
 
-  ```bash
-  git clone <repo>
-  cd project
-  pip install -r requirements.txt
-  python manage.py migrate
-  python manage.py runserver
-  ```
+## ⚙️ Запуск проекта
+1. Клонировать репозиторий:
+```bash
+git clone <repo_url>
+```
+2. Создать виртуальное окружение:
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux / Mac
+venv\Scripts\activate     # Windows
+```
+3. Установить зависимости:
+```bash
+pip install -r requirements.txt
+```
+4. Применить миграции:
+```bash
+python manage.py migrate
+```
 
 
 ## 📡 Эндпоинты:
@@ -123,7 +135,7 @@ REST API для управления задачами с авторизацие�
   ```
 
 
-📌 Особенности:
+## 📌 Особенности:
   - реализовано разграничение доступа
   - используются query params для фильтрации
   - реализована пагинация
