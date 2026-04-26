@@ -70,7 +70,7 @@ Authorization: Bearer <access_token>
 
 Query параметры:
 
-  status — фильтр по статусу
+  status - фильтр по статусу
   priority — фильтр по приоритету
   search — поиск по названию и описанию
   ordering — сортировка
