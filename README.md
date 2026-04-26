@@ -30,58 +30,59 @@ REST API для управления задачами с авторизацие�
 
 
 ## 📡 Эндпоинты:
-#### Регистрация
-```POST /api/auth/register/```
-
-**Body:**
-```json
-{
-  "username": "ivan",
-  "email": "ivan@example.com",
-  "password": "strongpass123",
-  "password2": "strongpass123"
-}
-```
-Получение токена (логин)
-
-``POST /api/auth/login/``
-
-Body:
-
-```{
-  "username": "ivan",
-  "password": "strongpass123"
-}
-```
-Обновление токена
-
-```POST /api/auth/refresh/```
+  Регистрация
+ 
+  ```POST /api/auth/register/```
+  
+  **Body:**
+  ```json
+  {
+    "username": "ivan",
+    "email": "ivan@example.com",
+    "password": "strongpass123",
+    "password2": "strongpass123"
+  }
+  ```
+  Получение токена (логин)
+  
+  ```POST /api/auth/login/```
+  
+  Body:
+  
+  ```{
+    "username": "ivan",
+    "password": "strongpass123"
+  }
+  ```
+  Обновление токена
+  
+  ```POST /api/auth/refresh/```
 
 📝 Задачи
 
-Все эндпоинты требуют авторизацию
+Все эндпоинты, кроме register требуют авторизацию
 Header:
 
 Authorization: Bearer <access_token>
 Получить список задач
 
-GET /api/tasks/
+```GET /api/tasks/```
 
 Query параметры:
 
-status — фильтр по статусу
-priority — фильтр по приоритету
-search — поиск по названию и описанию
-ordering — сортировка
+  status — фильтр по статусу
+  priority — фильтр по приоритету
+  search — поиск по названию и описанию
+  ordering — сортировка
 
 Пример:
 
-GET /api/tasks/?status=done&ordering=-created_at
+```GET /api/tasks/?status=done&ordering=-created_at```
 Создать задачу
 
-POST /api/tasks/
+```POST /api/tasks/```
 
-Body:
+```Body:
 
 {
   "title": "Сделать резюме",
@@ -89,42 +90,34 @@ Body:
   "status": "new",
   "priority": "high"
 }
+```
 Получить задачу
 
-GET /api/tasks/{id}/
+```GET /api/tasks/{id}/```
 
 Обновить задачу (частично)
 
-PATCH /api/tasks/{id}/
+```PATCH /api/tasks/{id}/```
 
 Удалить задачу
 
-DELETE /api/tasks/{id}/
+```DELETE /api/tasks/{id}/```
 
 📄 Пагинация
 
-GET /api/tasks/?page=2
+```GET /api/tasks/?page=2```
 
 Пример ответа:
 
-{
+```{
   "count": 20,
   "next": "...",
   "previous": "...",
   "results": [...]
 }
-## 📡 Примеры запросов:
-Создание задачи:
+```
 
-  ```{
-    "title": "Сделать резюме",
-    "description": "Подготовка к стажировке",
-    "status": "new",
-    "priority": "high"
-  }
-  ```
-  
-  
+
   📌 Особенности:
   
   - реализовано разграничение доступа
